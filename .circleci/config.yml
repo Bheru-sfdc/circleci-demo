@@ -1,23 +1,13 @@
 version: 2.1 
 jobs:
   run-build:
-    machine: true
-    working_directory: ~/ci_app
-    environment:
-      # from https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli_standalone.htm
-      # and https://developer.salesforce.com/media/salesforce-cli/manifest.json
-      - DX_CLI_URL: https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-      - releaseName: #2022.01.05
-      - CIRCLE_COMPARE_URL: << pipeline.project.git_url >>/compare/<< pipeline.git.base_revision >>..<<pipeline.git.revision>>
-      - CIRCLECI_PIPELINE_GIT_REVISION: <<pipeline.git.revision>>
-      - CIRCLECI_PIPELINE_GIT_BASE_REVISION: << pipeline.git.base_revision >>
     steps:
       - checkout
     - run:
           name: Download CLI
           command: |
             mkdir sfdx
-            wget -qO- $DX_CLI_URL | tar xJ -C sfdx --strip-components 1
+            wget -qO- https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ -C sfdx --strip-components 1
       - run:
           name: Install CLI
           command: |
