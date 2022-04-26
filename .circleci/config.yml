@@ -61,4 +61,4 @@ jobs:
           no_output_timeout: 300m
           command: |
             #Deploy to target deployment org and run unit tests. 
-            sfdx force:mdapi:deploy --checkonly --wait -1 -d deploy-sf-metadata --targetusername $SFDX_Username --testlevel $TESTLEVEL -r $TESTCLASSLIST            
+            sfdx force:mdapi:deploy --checkonly --wait -1 -d deploy-sf-metadata --targetusername $SFDX_Username --testlevel $TESTLEVEL      
