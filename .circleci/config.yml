@@ -60,7 +60,7 @@ jobs:
           name: convert the files in deploy folder to MDAPI format
           command: |
             #from SFDX project structure CONVERT TO MDAPI format
-            sfdx force:source:convert -r deploy -d deploy-sf-metadata     
+            sfdx force:source:convert -r force-app -d deploy-sf-metadata     
       - run:
           name: MDAPI Deploy to Target Deployment Org
           no_output_timeout: 300m
