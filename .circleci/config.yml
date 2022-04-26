@@ -3,7 +3,7 @@ jobs:
   run-build:
     steps:
       - checkout
-    - run:
+      - run:
           name: Download CLI
           command: |
             mkdir sfdx
