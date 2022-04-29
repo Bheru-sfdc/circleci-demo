@@ -74,14 +74,14 @@ workflows:
             branches:
               only: /^feature.*/
               
-  deploy-release-Staging:
+  deploy-Bheru-Sandbox:
     jobs:
       - build:
-          name: deploy-staging
-          context: Staging-Sandbox
+          name: deploy-BheruOrg
+          context: Bheru-Sandbox
           filters:
             branches:
-              only: /^release\/Staging.*/
+              only: /^feature-Bheru.*/
               
   deploy-release-Master:
     jobs:
