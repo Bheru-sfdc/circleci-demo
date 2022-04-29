@@ -51,7 +51,7 @@ jobs:
             echo $Server_Key | base64 -di > keys/server.key
 
             echo "Authenticating org"
-            sfdx force:auth:jwt:grant --clientid $Consumer_key --jwtkeyfile keys/server.key --username $SFDX_Username --setdefaultdevhubusername -a DevHub
+            sfdx force:auth:jwt:grant --clientid $Consumer_key --jwtkeyfile keys/server.key --username $SFDX_Username --instanceurl https://test.salesforce.com --setdefaultdevhubusername -a DevHub
       - run:
           name: convert the files in deploy folder to MDAPI format
           command: |
@@ -69,25 +69,9 @@ workflows:
     jobs:
       - build:
           name: deploy-feature
-          context: Dev-Sandbox
+          context: Bheru-Sandbox
           filters:
             branches:
               only: /^feature.*/
               
-  deploy-Bheru-Sandbox:
-    jobs:
-      - build:
-          name: deploy-BheruOrg
-          context: Bheru-Sandbox
-          filters:
-            branches:
-              only: /^feature-Bheru.*/
-              
-  deploy-release-Master:
-    jobs:
-      - build:
-          name: deploy-Prod
-          context: Production
-          filters:
-            branches:
-              only: /^release\/Prod.*/
+  
