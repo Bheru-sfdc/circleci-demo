@@ -1,5 +1,5 @@
 import { createElement } from 'lwc';
-import Paginator from 'c/paginator';
+import Paginator from 'c/paginator1';
 
 describe('c-paginator', () => {
     afterEach(() => {
